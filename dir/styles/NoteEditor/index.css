@@ -1,0 +1,45 @@
+@layer utilities {
+    .ProseMirror {
+      @apply caret-black dark:caret-white outline-0 pr-8 pl-20 py-16 z-0 mx-auto max-w-2xl lg:pl-8 lg:pr-8;
+  
+      & .selection {
+        @apply inline;
+      }
+  
+      & .selection,
+      & *::selection {
+        @apply bg-black/10 dark:bg-white/20 inline;
+      }
+  
+      & > .react-renderer {
+        @apply my-12 first:mt-0 last:mb-0;
+      }
+  
+      &.resize-cursor {
+        @apply cursor-col-resize;
+      }
+  
+      & .ProseMirror-gapcursor {
+        @apply relative w-full max-w-2xl mx-auto;
+  
+        &:after {
+          @apply border-t-black/40 dark:border-t-white/40 w-full -top-[1.5em] left-0 right-0;
+        }
+      }
+    }
+  
+    [data-theme='slash-command'] {
+      @apply w-[1000vw];
+    }
+  }
+  
+  /* Importing additional CSS files as-is */
+  @import './components/animations.css';
+  @import './components/blocks.css';
+  @import './components/code.css';
+  @import './components/collab.css';
+  @import './components/lists.css';
+  @import './components/placeholder.css';
+  @import './components/table.css';
+  @import './components/typography.css';
+  

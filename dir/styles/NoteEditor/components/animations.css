@@ -1,0 +1,36 @@
+@layer utilities {
+    .spinner-animation {
+      @apply animate-[spinner_1.6s_linear_infinite];
+      animation-delay: -1.6s;
+    }
+  
+    .spinner-animation-secondary {
+      @apply animation-delay-[-1s];
+    }
+  }
+  
+  /* Defining the custom spinner animation using Tailwind's @keyframes */
+  @keyframes spinner {
+    12.5% {
+      transform: translate(13px, 1px);
+    }
+    25% {
+      transform: translate(13px, 1px);
+    }
+    37.5% {
+      transform: translate(13px, 13px);
+    }
+    50% {
+      transform: translate(13px, 13px);
+    }
+    62.5% {
+      transform: translate(1px, 13px);
+    }
+    75% {
+      transform: translate(1px, 13px);
+    }
+    87.5% {
+      transform: translate(1px, 1px);
+    }
+  }
+  
