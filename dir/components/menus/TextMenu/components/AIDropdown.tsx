@@ -1,12 +1,14 @@
 
 import { DropdownButton } from '@/dir/components/ui/Dropdown'
 import { Icon } from '@/dir/components/ui/Icon'
-import { Surface } from '@/dir/components/ui/Surface'
-import { Toolbar } from '@/dir/components/ui/Toolbar'
-import { Language } from '@/dir/extensions/Ai/AiFree'
+import { Container } from '@/dir/components/ui/Container'
+import { ActionBar } from '@/dir/components/ui/ActionBar'
+
 import { languages, tones } from '@/dir/lib/constants'
 import * as Dropdown from '@radix-ui/react-dropdown-menu'
 import { useCallback } from 'react'
+
+type Language = any;
 
 export type AIDropdownProps = {
   onSimplify: () => void
@@ -37,17 +39,17 @@ export const AIDropdown = ({
   return (
     <Dropdown.Root>
       <Dropdown.Trigger asChild>
-        <Toolbar.Button
+        <ActionBar.Button
           className="text-purple-500 hover:text-purple-600 active:text-purple-600 dark:text-purple-400 dark:hover:text-purple-300 dark:active:text-purple-400"
           activeClassname="text-purple-600 hover:text-purple-600 dark:text-purple-400 dark:hover:text-purple-200"
         >
           <Icon name="Sparkles" className="mr-1" />
           AI Tools
           <Icon name="ChevronDown" className="w-2 h-2 ml-1" />
-        </Toolbar.Button>
+        </ActionBar.Button>
       </Dropdown.Trigger>
       <Dropdown.Content asChild>
-        <Surface className="p-2 min-w-[10rem]">
+        <Container className="p-2 min-w-[10rem]">
           <Dropdown.Item onClick={onSimplify}>
             <DropdownButton>
               <Icon name="CircleSlash" />
@@ -81,13 +83,13 @@ export const AIDropdown = ({
               </DropdownButton>
             </Dropdown.SubTrigger>
             <Dropdown.SubContent>
-              <Surface className="flex flex-col min-w-[15rem] p-2 max-h-[20rem] overflow-auto">
+              <Container className="flex flex-col min-w-[15rem] p-2 max-h-[20rem] overflow-auto">
                 {tones.map(tone => (
                   <Dropdown.Item onClick={handleTone(tone.value)} key={tone.value}>
                     <DropdownButton>{tone.label}</DropdownButton>
                   </Dropdown.Item>
                 ))}
-              </Surface>
+              </Container>
             </Dropdown.SubContent>
           </Dropdown.Sub>
           <Dropdown.Item onClick={onTldr}>
@@ -111,13 +113,13 @@ export const AIDropdown = ({
               </DropdownButton>
             </Dropdown.SubTrigger>
             <Dropdown.SubContent>
-              <Surface className="flex flex-col min-w-[15rem] p-2 max-h-[20rem] overflow-auto">
+              <Container className="flex flex-col min-w-[15rem] p-2 max-h-[20rem] overflow-auto">
                 {languages.map(lang => (
                   <Dropdown.Item onClick={handleTranslate(lang.value)} key={lang.value}>
                     <DropdownButton>{lang.label}</DropdownButton>
                   </Dropdown.Item>
                 ))}
-              </Surface>
+              </Container>
             </Dropdown.SubContent>
           </Dropdown.Sub>
           <Dropdown.Item onClick={onCompleteSentence}>
@@ -126,7 +128,7 @@ export const AIDropdown = ({
               Complete sentence
             </DropdownButton>
           </Dropdown.Item>
-        </Surface>
+        </Container>
       </Dropdown.Content>
     </Dropdown.Root>
   )

@@ -10,7 +10,6 @@ export function getRandomItem<T>(array: Array<T>): T {
 }
 
 export * from './variableStyles'
-export * from './retrieveConnectionText'
 export * from './getRenderContainer'
 export * from './isCustomNodeActive'
 export * from './isTextHighlighted'

@@ -1,8 +1,8 @@
 
 import { DropdownButton } from '@/dir/components/ui/Dropdown'
 import { Icon } from '@/dir/components/ui/Icon'
-import { Surface } from '@/dir/components/ui/Surface'
-import { Toolbar } from '@/dir/components/ui/Toolbar'
+import { Container } from '@/dir/components/ui/Container'
+import { ActionBar } from '@/dir/components/ui/ActionBar'
 import * as Dropdown from '@radix-ui/react-dropdown-menu'
 import { useCallback } from 'react'
 
@@ -28,13 +28,13 @@ export const FontSizePicker = ({ onChange, value }: FontSizePickerProps) => {
   return (
     <Dropdown.Root>
       <Dropdown.Trigger asChild>
-        <Toolbar.Button active={!!currentValue?.value}>
+        <ActionBar.Button active={!!currentValue?.value}>
           {currentSizeLabel}
           <Icon name="ChevronDown" className="w-2 h-2" />
-        </Toolbar.Button>
+        </ActionBar.Button>
       </Dropdown.Trigger>
       <Dropdown.Content asChild>
-        <Surface className="flex flex-col gap-1 px-2 py-4">
+        <Container className="flex flex-col gap-1 px-2 py-4">
           {FONT_SIZES.map(size => (
             <DropdownButton
               isActive={value === size.value}
@@ -44,7 +44,7 @@ export const FontSizePicker = ({ onChange, value }: FontSizePickerProps) => {
               <span style={{ fontSize: size.value }}>{size.label}</span>
             </DropdownButton>
           ))}
-        </Surface>
+        </Container>
       </Dropdown.Content>
     </Dropdown.Root>
   )

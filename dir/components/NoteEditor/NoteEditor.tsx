@@ -1,49 +1,49 @@
+
+'use client'
+
+
 import { EditorContent } from '@tiptap/react'
 import React, { useRef } from 'react'
 
-import { EditorToolbar } from './components/EditorToolbar'
-import { TextFormattingMenu } from '../menus/TextFormattingMenu'
-import { ContentBlockMenu } from '../menus/ContentBlockMenu'
-import { useEditorContext } from '@/hooks/useEditorContext'
-import { HyperlinkMenu } from '../menus'
+import { EditorHeader } from './components/EditorHeader'
+import { TextMenu } from '../menus/TextMenu'
+import { ContentItemMenu } from '../menus/ContentItemMenu'
+import { LinkMenu } from '../menus'
 
-import * as Y from 'yjs'
-import { LayoutMenu } from '@/extensions/Layout/menus'
-import { TableCellMenu, TableHeaderMenu } from '@/extensions/Table/menus'
-import ImageBlockOptions from '@/extensions/ImageBlock/components/ImageBlockOptions'
+import { useEditorContext } from '@/dir/hooks/useEditorContext'
+import { ColumnsMenu } from '@/dir/extentions/MultiColumn/menus'
+import { TableColumnMenu, TableRowMenu } from '@/dir/extentions/Table/menus'
+import ImageBlockMenu from '@/dir/extentions/ImageBlock/components/ImageBlockMenu'
 
 export const NoteEditor = ({
-  authToken,
-  documentInstance,
-  ,
+  aiToken,   
 }: {
-  authToken?: string
-  documentInstance: Y.Doc | null
+  aiToken?: string
+  
 }) => {
   const menuAreaRef = useRef(null)
 
-  const { editorInstance, activeUsers, collaborationState } = useEditorContext({ authToken, documentInstance})
+  const { editor, users } = useEditorContext({ aiToken})
 
-  if (!editorInstance || !activeUsers) {
+  if (!editor || !users) {
     return null
   }
 
   return (
     <div className="flex h-full" ref={menuAreaRef}>
       <div className="relative flex flex-col flex-1 h-full overflow-hidden">
-        <EditorToolbar
-          editor={editorInstance}
-          collaborationState={collaborationState}
-          activeUsers={activeUsers}
+        <EditorHeader
+          editor={editor}
+          users={users}
         />
-        <EditorContent editor={editorInstance} className="flex-1 overflow-y-auto" />
-        <ContentBlockMenu editor={editorInstance} />
-        <HyperlinkMenu editor={editorInstance} appendTo={menuAreaRef} />
-        <TextFormattingMenu editor={editorInstance} />
-        <LayoutMenu editor={editorInstance} appendTo={menuAreaRef} />
-        <TableHeaderMenu editor={editorInstance} appendTo={menuAreaRef} />
-        <TableCellMenu editor={editorInstance} appendTo={menuAreaRef} />
-        <ImageBlockOptions editor={editorInstance} appendTo={menuAreaRef} />
+        <EditorContent editor={editor} className="flex-1 overflow-y-auto" />
+        <ContentItemMenu editor={editor} />
+        <LinkMenu editor={editor} appendTo={menuAreaRef} />
+        <TextMenu editor={editor} />
+        <ColumnsMenu editor={editor} appendTo={menuAreaRef} />
+        <TableRowMenu editor={editor} appendTo={menuAreaRef} />
+        <TableColumnMenu editor={editor} appendTo={menuAreaRef} />
+        <ImageBlockMenu editor={editor} appendTo={menuAreaRef} />
       </div>
     </div>
   )

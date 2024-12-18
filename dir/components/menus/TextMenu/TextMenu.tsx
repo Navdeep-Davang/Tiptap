@@ -1,5 +1,5 @@
 import { Icon } from '../../ui/Icon'
-import { Toolbar } from '../../ui/Toolbar'
+import { ActionBar } from '../../ui/ActionBar'
 import { useTextmenuCommands } from './hooks/useTextmenuCommands'
 import { useTextmenuStates } from './hooks/useTextmenuStates'
 import { BubbleMenu, Editor } from '@tiptap/react'
@@ -12,11 +12,11 @@ import { ContentTypePicker } from './components/ContentTypePicker'
 import { AIDropdown } from './components/AIDropdown'
 import { EditLinkPopover } from './components/EditLinkPopover'
 import { ColorPicker } from '../../panels'
-import { Surface } from '../../ui/Surface'
+import { Container } from '../../ui/Container'
 
 // We memorize the button so each button is not rerendered
 // on every editor state change
-const MemoButton = memo(Toolbar.Button)
+const MemoButton = memo(ActionBar.Button)
 const MemoColorPicker = memo(ColorPicker)
 const MemoFontFamilyPicker = memo(FontFamilyPicker)
 const MemoFontSizePicker = memo(FontSizePicker)
@@ -59,8 +59,8 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
       shouldShow={states.shouldShow}
       updateDelay={100}
     >
-      <Toolbar.Wrapper>
-        <AIDropdown
+      <ActionBar.Wrapper>
+        {/* <AIDropdown
           onCompleteSentence={commands.onCompleteSentence}
           onEmojify={commands.onEmojify}
           onFixSpelling={commands.onFixSpelling}
@@ -70,12 +70,12 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
           onTldr={commands.onTldr}
           onTone={commands.onTone}
           onTranslate={commands.onTranslate}
-        />
-        <Toolbar.Divider />
+        /> */}
+        <ActionBar.Divider />
         <MemoContentTypePicker options={blockOptions} />
         <MemoFontFamilyPicker onChange={commands.onSetFont} value={states.currentFont || ''} />
         <MemoFontSizePicker onChange={commands.onSetFontSize} value={states.currentSize || ''} />
-        <Toolbar.Divider />
+        <ActionBar.Divider />
         <MemoButton tooltip="Bold" tooltipShortcut={['Mod', 'B']} onClick={commands.onBold} active={states.isBold}>
           <Icon name="Bold" />
         </MemoButton>
@@ -117,13 +117,13 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
             </MemoButton>
           </Popover.Trigger>
           <Popover.Content side="top" sideOffset={8} asChild>
-            <Surface className="p-1">
+            <Container className="p-1">
               <MemoColorPicker
                 color={states.currentHighlight}
                 onChange={commands.onChangeHighlight}
                 onClear={commands.onClearHighlight}
               />
-            </Surface>
+            </Container>
           </Popover.Content>
         </Popover.Root>
         <Popover.Root>
@@ -133,13 +133,13 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
             </MemoButton>
           </Popover.Trigger>
           <Popover.Content side="top" sideOffset={8} asChild>
-            <Surface className="p-1">
+            <Container className="p-1">
               <MemoColorPicker
                 color={states.currentColor}
                 onChange={commands.onChangeColor}
                 onClear={commands.onClearColor}
               />
-            </Surface>
+            </Container>
           </Popover.Content>
         </Popover.Root>
         <Popover.Root>
@@ -149,7 +149,7 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
             </MemoButton>
           </Popover.Trigger>
           <Popover.Content side="top" asChild>
-            <Toolbar.Wrapper>
+            <ActionBar.Wrapper>
               <MemoButton
                 tooltip="Subscript"
                 tooltipShortcut={['Mod', '.']}
@@ -166,7 +166,7 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
               >
                 <Icon name="Superscript" />
               </MemoButton>
-              <Toolbar.Divider />
+              <ActionBar.Divider />
               <MemoButton
                 tooltip="Align left"
                 tooltipShortcut={['Shift', 'Mod', 'L']}
@@ -199,10 +199,10 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
               >
                 <Icon name="AlignJustify" />
               </MemoButton>
-            </Toolbar.Wrapper>
+            </ActionBar.Wrapper>
           </Popover.Content>
         </Popover.Root>
-      </Toolbar.Wrapper>
+      </ActionBar.Wrapper>
     </BubbleMenu>
   )
 }

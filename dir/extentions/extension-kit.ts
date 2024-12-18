@@ -1,8 +1,18 @@
 'use client'
 
+
+import { createLowlight } from 'lowlight'; 
+
+const lowlight = createLowlight();
+
+
+
+// import { HocuspocusProvider } from '@hocuspocus/provider'
 import {
   BlockquoteFigure,
   BulletList,
+  Columns, 
+  Column,
   CodeBlock,
   CodeBlockLowlight,
   Document,
@@ -27,8 +37,8 @@ import {
   Underline,
   BubbleMenu,
   CharacterCount,
-  Collaboration,
-  CollaborationCursor,
+  // Collaboration,
+  // CollaborationCursor,
   Color,
   Dropcursor,
   FloatingMenu,
@@ -41,14 +51,18 @@ import {
   Typography,
 } from '.'
 
+import {  } from 'lowlight';
+// interface ExtensionKitProps {
+//   provider?: HocuspocusProvider | null
+// }
 
-export const ExtensionKit = () => [
+const ExtensionKit = () => [
   // Nodes
   Document,
   BlockquoteFigure,
   BulletList,
   CodeBlock,
-  CodeBlockLowlight,
+  CodeBlockLowlight.configure({ lowlight }),
   Heading.configure({
     levels: [1, 2, 3, 4, 5, 6],
   }),
@@ -65,8 +79,9 @@ export const ExtensionKit = () => [
     nested: true,
   }),
   TaskList,
-  Text,
   Youtube,
+  Columns, 
+  Column,
 
   // Marks
   Highlight.configure({ multicolor: true }),
@@ -81,8 +96,8 @@ export const ExtensionKit = () => [
   // Functionalities
   BubbleMenu,
   CharacterCount.configure({ limit: 50000 }),
-  Collaboration,
-  CollaborationCursor,
+  // Collaboration,
+  // CollaborationCursor,
   Color,
   Dropcursor.configure({
     width: 2,

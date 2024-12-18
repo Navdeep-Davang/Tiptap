@@ -2,8 +2,8 @@
 import { icons } from 'lucide-react'
 import { useMemo } from 'react'
 import * as Dropdown from '@radix-ui/react-dropdown-menu'
-import { Toolbar } from '@/dir/components/ui/Toolbar'
-import { Surface } from '@/dir/components/ui/Surface'
+import { ActionBar } from '@/dir/components/ui/ActionBar'
+import { Container } from '@/dir/components/ui/Container'
 import { DropdownButton, DropdownCategoryTitle } from '@/dir/components/ui/Dropdown'
 import { Icon } from '@/dir/components/ui/Icon'
 
@@ -40,13 +40,13 @@ export const ContentTypePicker = ({ options }: ContentTypePickerProps) => {
   return (
     <Dropdown.Root>
       <Dropdown.Trigger asChild>
-        <Toolbar.Button active={activeItem?.id !== 'paragraph' && !!activeItem?.type}>
+        <ActionBar.Button active={activeItem?.id !== 'paragraph' && !!activeItem?.type}>
           <Icon name={(activeItem?.type === 'option' && activeItem.icon) || 'Pilcrow'} />
           <Icon name="ChevronDown" className="w-2 h-2" />
-        </Toolbar.Button>
+        </ActionBar.Button>
       </Dropdown.Trigger>
       <Dropdown.Content asChild>
-        <Surface className="flex flex-col gap-1 px-2 py-4">
+        <Container className="flex flex-col gap-1 px-2 py-4">
           {options.map(option => {
             if (isOption(option)) {
               return (
@@ -63,7 +63,7 @@ export const ContentTypePicker = ({ options }: ContentTypePickerProps) => {
               )
             }
           })}
-        </Surface>
+        </Container>
       </Dropdown.Content>
     </Dropdown.Root>
   )

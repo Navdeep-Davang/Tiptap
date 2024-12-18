@@ -1,15 +1,15 @@
 
-import DragHandle from '@tiptap-pro/extension-drag-handle-react'
+// import DragHandle from '@tiptap-pro/extension-drag-handle-react'
 import { Editor } from '@tiptap/react'
 
 import * as Popover from '@radix-ui/react-popover'
 import useContentItemActions from './hooks/useContentItemActions'
 import { useData } from './hooks/useData'
 import { useEffect, useState } from 'react'
-import { Surface } from '../../ui/Surface'
+import { Container } from '../../ui/Container'
 import { DropdownButton } from '../../ui/Dropdown'
 import { Icon } from '../../ui/Icon'
-import { Toolbar } from '../../ui/Toolbar'
+import { ActionBar } from '../../ui/ActionBar'
 
 export type ContentItemMenuProps = {
   editor: Editor
@@ -29,27 +29,27 @@ export const ContentItemMenu = ({ editor }: ContentItemMenuProps) => {
   }, [editor, menuOpen])
 
   return (
-    <DragHandle
-      pluginKey="ContentItemMenu"
-      editor={editor}
-      onNodeChange={data.handleNodeChange}
-      tippyOptions={{
-        offset: [-2, 16],
-        zIndex: 99,
-      }}
-    >
+    //  <DragHandle
+    //   pluginKey="ContentItemMenu"
+    //   editor={editor}
+    //   onNodeChange={data.handleNodeChange}
+    //   tippyOptions={{
+    //     offset: [-2, 16],
+    //     zIndex: 99,
+    //   }}
+    // >
       <div className="flex items-center gap-0.5">
-        <Toolbar.Button onClick={actions.handleAdd}>
+        <ActionBar.Button onClick={actions.handleAdd}>
           <Icon name="Plus" />
-        </Toolbar.Button>
+        </ActionBar.Button>
         <Popover.Root open={menuOpen} onOpenChange={setMenuOpen}>
           <Popover.Trigger asChild>
-            <Toolbar.Button>
+            <ActionBar.Button>
               <Icon name="GripVertical" />
-            </Toolbar.Button>
+            </ActionBar.Button>
           </Popover.Trigger>
           <Popover.Content side="bottom" align="start" sideOffset={8}>
-            <Surface className="p-2 flex flex-col min-w-[16rem]">
+            <Container className="p-2 flex flex-col min-w-[16rem]">
               <Popover.Close>
                 <DropdownButton onClick={actions.resetTextFormatting}>
                   <Icon name="RemoveFormatting" />
@@ -68,7 +68,7 @@ export const ContentItemMenu = ({ editor }: ContentItemMenuProps) => {
                   Duplicate
                 </DropdownButton>
               </Popover.Close>
-              <Toolbar.Divider horizontal />
+              <ActionBar.Divider horizontal />
               <Popover.Close>
                 <DropdownButton
                   onClick={actions.deleteNode}
@@ -78,10 +78,10 @@ export const ContentItemMenu = ({ editor }: ContentItemMenuProps) => {
                   Delete
                 </DropdownButton>
               </Popover.Close>
-            </Surface>
+            </Container>
           </Popover.Content>
         </Popover.Root>
       </div>
-    </DragHandle>
+    // </DragHandle> 
   )
 }
