@@ -4,7 +4,6 @@ import React, { useRef } from 'react'
 import { EditorToolbar } from './components/EditorToolbar'
 import { TextFormattingMenu } from '../menus/TextFormattingMenu'
 import { ContentBlockMenu } from '../menus/ContentBlockMenu'
-import { CollaborativeProvider } from '@hocuspocus/provider'
 import { useEditorContext } from '@/hooks/useEditorContext'
 import { HyperlinkMenu } from '../menus'
 
@@ -16,15 +15,14 @@ import ImageBlockOptions from '@/extensions/ImageBlock/components/ImageBlockOpti
 export const NoteEditor = ({
   authToken,
   documentInstance,
-  collaborationProvider,
+  ,
 }: {
   authToken?: string
   documentInstance: Y.Doc | null
-  collaborationProvider?: CollaborativeProvider | null | undefined
 }) => {
   const menuAreaRef = useRef(null)
 
-  const { editorInstance, activeUsers, collaborationState } = useEditorContext({ authToken, documentInstance, collaborationProvider })
+  const { editorInstance, activeUsers, collaborationState } = useEditorContext({ authToken, documentInstance})
 
   if (!editorInstance || !activeUsers) {
     return null

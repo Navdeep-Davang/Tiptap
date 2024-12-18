@@ -1,9 +1,9 @@
 import React, { ButtonHTMLAttributes, HTMLProps, forwardRef } from 'react'
 
-import { cn } from '@/lib/utils'
 import { Container } from './Container'
-import { Button, ButtonProps } from './Button'
+import { Button, ButtonProps, ButtonSize } from './Button'
 import Tooltip from './Tooltip'
+import { cn } from '@/dir/lib/utils'
 
 export type ActionBarWrapperProps = {
   shouldDisplayContent?: boolean
@@ -55,7 +55,7 @@ export type ActionBarButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   activeClassname?: string
   tooltip?: string
   tooltipShortcut?: string[]
-  buttonSize?: ButtonProps['buttonSize']
+  buttonSize?: ButtonProps['size']
   variant?: ButtonProps['variant']
 }
 
@@ -77,10 +77,10 @@ const ActionBarButton = forwardRef<HTMLButtonElement, ActionBarButtonProps>(
 
     const buttonContent = (
       <Button
-        activeClassname={activeClassname}
+        activeStyles={activeClassname}
         className={buttonClassName}
         variant={variant}
-        buttonSize={buttonSize}
+        size={buttonSize}
         ref={ref}
         {...rest}
       >
