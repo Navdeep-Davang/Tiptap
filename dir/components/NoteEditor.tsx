@@ -1,7 +1,6 @@
 import { EditorContent } from '@tiptap/react'
 import React, { useRef } from 'react'
 
-import '@/styles/index.css'
 import { EditorToolbar } from './components/EditorToolbar'
 import { TextFormattingMenu } from '../menus/TextFormattingMenu'
 import { ContentBlockMenu } from '../menus/ContentBlockMenu'
