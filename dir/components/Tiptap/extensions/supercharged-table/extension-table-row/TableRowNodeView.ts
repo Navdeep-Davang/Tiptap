@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+
 import { Node as ProseMirrorNode } from "prosemirror-model";
 import { NodeView } from "prosemirror-view";
 

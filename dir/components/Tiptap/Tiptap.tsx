@@ -13,6 +13,10 @@ import { notitapEditorClass } from './proseClassString'
 
 import "./styles/tiptap.scss";
 
+
+
+
+
 export const Tiptap = () => {
   const logContent = useCallback(
     (e: Editor) => console.log(e.getJSON()),

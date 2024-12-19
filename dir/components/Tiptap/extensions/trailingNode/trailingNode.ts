@@ -50,7 +50,6 @@ export const TrailingNode = Extension.create<TrailingNodeOptions>({
 
           if (!shouldInsertNodeAtEnd) return;
 
-          // eslint-disable-next-line consistent-return
           return tr.insert(endPosition, type.create());
         },
         state: {
@@ -62,6 +61,7 @@ export const TrailingNode = Extension.create<TrailingNodeOptions>({
           apply: (tr, value) => {
             if (!tr.docChanged) return value;
 
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const lastNode = (tr.doc.lastChild?.content as any)?.content?.[0];
 
             return !nodeEqualsType({ node: lastNode, types: disabledNodes });
