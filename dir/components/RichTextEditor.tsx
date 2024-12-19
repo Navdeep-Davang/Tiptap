@@ -1,18 +1,34 @@
-
-//dir\components\RichTextEditor.tsx
-
 'use client'; 
 
 import { useEditor, EditorContent } from '@tiptap/react';
-import { StarterKit } from '@tiptap/starter-kit';
+import StarterKit from '@tiptap/starter-kit';
+import { DragDropPlugin } from '../customExtentions/DragDropPlugin';
+import { MulticolumnPlugin } from '../customExtentions/MulticolumnPlugin';
 
 const RichTextEditor = () => {
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [
+      StarterKit,
+      DragDropPlugin.configure({
+        onDrop: (draggedNode, targetNode) => {
+          console.log('Dragged:', draggedNode);
+          console.log('Dropped on:', targetNode);
+        },
+      }),
+      MulticolumnPlugin.configure({
+        onCombine: (node1, node2) => {
+          console.log('Combined:', node1, node2);
+        },
+      }),
+    ],
     content: '<p>Hello, start editing...</p>',
   });
 
-  return <EditorContent editor={editor} />;
+  return (
+    <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '16px' }}>
+      <EditorContent editor={editor} />
+    </div>
+  );
 };
 
 export default RichTextEditor;
