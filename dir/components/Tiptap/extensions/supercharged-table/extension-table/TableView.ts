@@ -66,7 +66,7 @@ export class TableView implements NodeView {
 
   cellMinWidth: number;
 
-  dom: HTMLElement;
+  dom: Element;
 
   table: HTMLTableElement;
 

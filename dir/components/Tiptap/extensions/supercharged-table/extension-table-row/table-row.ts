@@ -1,11 +1,13 @@
 import { mergeAttributes, Node } from "@tiptap/core";
 import { NodeSelection } from "prosemirror-state";
-import { stopPrevent } from "@/tiptap/utils";
+import { stopPrevent } from "../../../utils";
 
 export interface TableRowOptions {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   HTMLAttributes: Record<string, any>;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isScrollable = function (ele: any) {
   const hasScrollableContent = ele.scrollHeight > ele.clientHeight;
 
@@ -15,8 +17,9 @@ const isScrollable = function (ele: any) {
   return hasScrollableContent && !isOverflowHidden;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getScrollableParent = function (ele: any): any {
-  // eslint-disable-next-line no-nested-ternary
+
   return !ele || ele === document.body
     ? document.body
     : isScrollable(ele)
@@ -26,7 +29,9 @@ const getScrollableParent = function (ele: any): any {
 
 const getElementWithAttributes = (
   name: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   attrs?: Record<string, any>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   events?: Record<string, any>
 ) => {
   const el = document.createElement(name);
@@ -123,6 +128,7 @@ export const TableRow = Node.create<TableRowOptions>({
           contenteditable: "false",
         },
         {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           click: (e: any) => {
             if (e) stopPrevent(e);
 
@@ -148,6 +154,7 @@ export const TableRow = Node.create<TableRowOptions>({
             "text-sm px-1 absolute -translate-x-[125%] hover:active:-translate-x-[125%] mr-2",
         },
         {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           click: (e: any) => {
             if (e) stopPrevent(e);
 

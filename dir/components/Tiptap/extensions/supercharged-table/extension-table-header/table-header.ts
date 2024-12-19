@@ -4,6 +4,7 @@ import { ReactNodeViewRenderer } from "@tiptap/react";
 import { TableCellNodeView } from "../extension-table-cell/TableCellNodeView";
 
 export interface TableHeaderOptions {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   HTMLAttributes: Record<string, any>;
 }
 export const TableHeader = Node.create<TableHeaderOptions>({

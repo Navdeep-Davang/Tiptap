@@ -35,16 +35,13 @@ export class TableRowNodeView implements NodeView {
     return true;
   }
 
-  ignoreMutation(
-    mutation: MutationRecord | { type: "selection"; target: Element }
-  ) {
+  ignoreMutation(mutation: MutationRecord | { type: "selection"; target: Node }) {
     return (
       mutation.type === "attributes" &&
-      (mutation.target === this.table ||
-        this.colgroup.contains(mutation.target))
+      (mutation.target === this.table || this.colgroup.contains(mutation.target))
     );
   }
-
+  
   // deleteNode(): void {
   // const from = this.getPos();
   // const to = from + this.node.nodeSize;

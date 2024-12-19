@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import React, { FC, useEffect, useRef, useState } from "react";
 import { NodeViewContent, NodeViewWrapper, NodeViewProps } from "@tiptap/react";
 import { Editor } from "@tiptap/core";
