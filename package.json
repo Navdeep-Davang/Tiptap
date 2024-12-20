@@ -58,6 +58,7 @@
     "@tiptap/react": "^2.10.3",
     "@tiptap/starter-kit": "^2.10.3",
     "@tiptap/suggestion": "^2.10.3",
+    "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "fuzzysort": "^3.1.0",
     "linkifyjs": "^4.2.0",
@@ -72,6 +73,7 @@
     "react": "^19.0.0",
     "react-colorful": "^5.6.1",
     "react-dom": "^19.0.0",
+    "sass": "^1.83.0",
     "tailwind-merge": "^2.5.5",
     "tippy.js": "^6.3.7",
     "uuid": "^11.0.3"

@@ -23,6 +23,8 @@ export const Tiptap = () => {
     []
   );
 
+  
+
   const [isAddingNewLink, setIsAddingNewLink] = useState(false);
 
   const openLinkModal = () => setIsAddingNewLink(true);
@@ -53,6 +55,7 @@ export const Tiptap = () => {
     });
 
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: getExtensions({ openLinkModal }),
     content,
     editorProps: {
@@ -62,9 +65,29 @@ export const Tiptap = () => {
         suppressContentEditableWarning: "true",
       },
     },
-    onUpdate: debounce((e: Editor) => {
-      logContent(e);
-    }, 500),
+    onUpdate: debounce(
+      ({
+        editor,
+        transaction,
+      }: {
+        editor: Editor;
+        transaction: { selection?: unknown; getMeta?: (key: string) => any };
+      }) => {
+        // Example: Use editor
+        logContent(editor);
+    
+        // Example: Use transaction fields if needed
+        if (transaction.selection) {
+          console.log('Selection updated:', transaction.selection);
+        }
+    
+        if (transaction.getMeta) {
+          const metaValue = transaction.getMeta('contentChanged');
+          console.log('Content changed meta:', metaValue);
+        }
+      },
+      500
+    ),
   });
 
   const addTable = () => editor?.commands.insertTable({ rows: 3, cols: 3, withHeaderRow: true })
