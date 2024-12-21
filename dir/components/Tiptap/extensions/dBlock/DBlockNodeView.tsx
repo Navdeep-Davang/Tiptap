@@ -32,7 +32,7 @@ export const DBlockNodeView: React.FC<NodeViewProps> = ({
       <section
         className="flex mt-2 pt-[2px] gap-1"
         aria-label="left-menu"
-        contentEditable="false"
+        contentEditable={false}
       >
         <button
           type="button"

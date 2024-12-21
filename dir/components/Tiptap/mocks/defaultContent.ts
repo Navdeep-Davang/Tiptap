@@ -1,5 +1,8 @@
 import { Content } from "@tiptap/react";
 
+const unsplashUrl = `https://source.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_KEY}&w=800&h=400`;
+
+
 export const content: Content = {
   type: "doc",
   content: [
@@ -160,12 +163,12 @@ export const content: Content = {
         {
           type: "resizableMedia",
           attrs: {
-            src: "https://source.unsplash.com/8xznAGy4HcY/800x400",
+            src: unsplashUrl,
             "media-type": "img",
             alt: "Something else",
             title: "Something",
-            width: 574,
-            height: 287,
+            width: 800,
+            height: 400,
             dataAlign: "center",
             dataFloat: null,
           },

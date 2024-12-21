@@ -207,23 +207,24 @@ export const suggestions = {
 
       onKeyDown(props: { event: KeyboardEvent }) {
         component.updateProps({ ...localProps, event: props.event });
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (component.ref as any).onKeyDown({ event: props.event });
-
+      
+        
+        if (component.element && component.element instanceof HTMLElement) {
+          // Directly pass the event to the onkeydown handler
+          component.element.onkeydown?.(props.event);
+        }
+      
         if (props.event.key === "Escape") {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (popup[0] as any).hide();
-
           return true;
         }
-
+      
         if (props.event.key === "Enter") {
           stopPrevent(props.event);
-
           return true;
         }
-
+      
         return false;
       },
 

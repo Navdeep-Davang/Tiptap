@@ -23,7 +23,7 @@ export const Tiptap = () => {
     []
   );
 
-  
+  const unsplashUrl = `https://source.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_KEY}&w=800&h=400`;
 
   const [isAddingNewLink, setIsAddingNewLink] = useState(false);
 
@@ -33,7 +33,7 @@ export const Tiptap = () => {
 
   const addImage = () =>
     editor?.commands.setMedia({
-      src: "https://source.unsplash.com/8xznAGy4HcY/800x400",
+      src: unsplashUrl,
       "media-type": "img",
       alt: "Something else",
       title: "Something",

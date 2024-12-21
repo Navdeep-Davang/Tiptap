@@ -25,6 +25,12 @@ import { SuperchargedTableExtensions } from "./supercharged-table";
 import { ResizableMedia } from "./resizableMedia";
 import { TrailingNode } from "./trailingNode";
 
+
+
+const unsplashUrl = `https://source.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_KEY}&w=800&h=400`;
+
+
+
 export interface PlaceholderOptions {
   emptyEditorClass: string;
   emptyNodeClass: string;
@@ -174,7 +180,7 @@ export const getExtensions = ({
           // do your thing
         }
 
-        return "https://source.unsplash.com/8xznAGy4HcY/800x400";
+        return unsplashUrl;
       },
     }),
 
