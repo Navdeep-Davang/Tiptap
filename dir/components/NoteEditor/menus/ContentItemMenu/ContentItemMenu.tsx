@@ -6,10 +6,10 @@ import * as Popover from '@radix-ui/react-popover'
 import useContentItemActions from './hooks/useContentItemActions'
 import { useData } from './hooks/useData'
 import { useEffect, useState } from 'react'
-import { Container } from '../../ui/Container'
-import { DropdownButton } from '../../ui/Dropdown'
-import { Icon } from '../../ui/Icon'
-import { ActionBar } from '../../ui/ActionBar'
+import { Container } from '../../../ui/Container'
+import { DropdownButton } from '../../../ui/Dropdown'
+import { Icon } from '../../../ui/Icon'
+import { ActionBar } from '../../../ui/ActionBar'
 
 export type ContentItemMenuProps = {
   editor: Editor

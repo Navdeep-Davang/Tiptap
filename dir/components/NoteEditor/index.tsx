@@ -6,14 +6,14 @@ import { EditorContent } from '@tiptap/react'
 import React, { useRef } from 'react'
 
 import { EditorHeader } from './components/EditorHeader'
-import { TextMenu } from '../menus/TextMenu'
-import { ContentItemMenu } from '../menus/ContentItemMenu'
-import { LinkMenu } from '../menus'
+import { TextMenu } from './menus/TextMenu'
+import { ContentItemMenu } from './menus/ContentItemMenu'
+import { LinkMenu } from './menus'
 
 import { useEditorContext } from '@/dir/hooks/useEditorContext'
-import { ColumnsMenu } from '@/dir/extentions/MultiColumn/menus'
-import { TableColumnMenu, TableRowMenu } from '@/dir/extentions/Table/menus'
-import ImageBlockMenu from '@/dir/extentions/ImageBlock/components/ImageBlockMenu'
+import { ColumnsMenu } from '@/dir/components/NoteEditor/extentions/MultiColumn/menus'
+import { TableColumnMenu, TableRowMenu } from '@/dir/components/NoteEditor/extentions/Table/menus'
+import ImageBlockMenu from '@/dir/components/NoteEditor/extentions/ImageBlock/components/ImageBlockMenu'
 
 export const NoteEditor = ({
   aiToken,   

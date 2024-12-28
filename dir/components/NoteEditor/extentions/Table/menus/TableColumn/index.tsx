@@ -2,7 +2,7 @@ import { BubbleMenu as BaseBubbleMenu } from '@tiptap/react'
 import React, { JSX, useCallback } from 'react'
 
 import { isColumnGripSelected } from './utils'
-import { MenuProps, ShouldShowProps } from '@/dir/components/menus/types'
+import { MenuProps, ShouldShowProps } from '@/dir/components/NoteEditor/menus/types'
 import { ActionBar } from '@/dir/components/ui/ActionBar'
 import { Icon } from '@/dir/components/ui/Icon'
 import * as PopoverMenu from '@/dir/components/ui/PopoverMenu'

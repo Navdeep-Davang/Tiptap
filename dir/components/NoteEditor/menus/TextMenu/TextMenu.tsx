@@ -1,5 +1,5 @@
-import { Icon } from '../../ui/Icon'
-import { ActionBar } from '../../ui/ActionBar'
+import { Icon } from '../../../ui/Icon'
+import { ActionBar } from '../../../ui/ActionBar'
 import { useTextmenuCommands } from './hooks/useTextmenuCommands'
 import { useTextmenuStates } from './hooks/useTextmenuStates'
 import { BubbleMenu, Editor } from '@tiptap/react'
@@ -12,7 +12,7 @@ import { ContentTypePicker } from './components/ContentTypePicker'
 import { AIDropdown } from './components/AIDropdown'
 import { EditLinkPopover } from './components/EditLinkPopover'
 import { ColorPicker } from '../../panels'
-import { Container } from '../../ui/Container'
+import { Container } from '../../../ui/Container'
 
 // We memorize the button so each button is not rerendered
 // on every editor state change

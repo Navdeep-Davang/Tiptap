@@ -4,10 +4,10 @@ import { Instance, sticky } from 'tippy.js'
 import { v4 as uuid } from 'uuid'
 
 import { getRenderContainer } from '@/dir/lib/utils'
-import { ActionBar } from '../../../components/ui/ActionBar'
-import { Icon } from '../../../components/ui/Icon'
+import { ActionBar } from '../../../../ui/ActionBar'
+import { Icon } from '../../../../ui/Icon'
 import { ImageBlockWidth } from './ImageBlockWidth'
-import { MenuProps } from '@/dir/components/menus/types'
+import { MenuProps } from '@/dir/components/NoteEditor/menus/types'
 
 
 export const ImageBlockMenu = ({ editor, appendTo }: MenuProps): JSX.Element => {

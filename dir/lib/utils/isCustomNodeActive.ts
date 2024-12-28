@@ -1,6 +1,6 @@
 import { Editor } from '@tiptap/react'
 
-import { Figcaption, HorizontalRule, ImageBlock, Link, CodeBlock } from '@/dir/extentions'
+import { Figcaption, HorizontalRule, ImageBlock, Link, CodeBlock } from '@/dir/components/NoteEditor/extentions'
 // import { TableOfContentsNode } from '@/dir/extensions/TableOfContentsNode'
 
 export const isTableGripSelected = (node: HTMLElement) => {

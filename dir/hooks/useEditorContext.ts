@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { useEditor, useEditorState } from '@tiptap/react';
 import type { AnyExtension, Editor } from '@tiptap/core';
-import ExtensionKit from '../extentions/extension-kit';
+import ExtensionKit from '../components/NoteEditor/extentions/extension-kit';
 
 declare global {
   interface Window {

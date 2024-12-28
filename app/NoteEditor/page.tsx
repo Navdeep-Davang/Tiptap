@@ -2,13 +2,13 @@
 
 import { EditorContent } from '@tiptap/react';
 import React, { useRef } from 'react';
-import { TextMenu } from '@/dir/components/menus';
-import { ContentItemMenu } from '@/dir/components/menus';
-import { LinkMenu } from '@/dir/components/menus';
+import { TextMenu } from '@/dir/components/NoteEditor/menus';
+import { ContentItemMenu } from '@/dir/components/NoteEditor/menus';
+import { LinkMenu } from '@/dir/components/NoteEditor/menus';
 import { useEditorContext } from '@/dir/hooks/useEditorContext';
-import { ColumnsMenu } from '@/dir/extentions/MultiColumn/menus';
-import { TableColumnMenu, TableRowMenu } from '@/dir/extentions/Table/menus';
-import ImageBlockMenu from '@/dir/extentions/ImageBlock/components/ImageBlockMenu';
+import { ColumnsMenu } from '@/dir/components/NoteEditor/extentions/MultiColumn/menus';
+import { TableColumnMenu, TableRowMenu } from '@/dir/components/NoteEditor/extentions/Table/menus';
+import ImageBlockMenu from '@/dir/components/NoteEditor/extentions/ImageBlock/components/ImageBlockMenu';
 import { EditorHeader } from '@/dir/components/NoteEditor/components/EditorHeader';
 
 export const NoteEditor = ({ aiToken }: { aiToken?: string }) => {

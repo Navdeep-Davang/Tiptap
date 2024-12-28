@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 import { sticky } from 'tippy.js'
 import { v4 as uuid } from 'uuid'
 
-import { MenuProps } from '@/dir/components/menus/types'
+import { MenuProps } from '@/dir/components/NoteEditor/menus/types'
 import { getRenderContainer } from '@/dir/lib/utils/getRenderContainer'
 import { ColumnLayout } from '../Columns'
 import { Icon } from '@/dir/components/ui/Icon'
